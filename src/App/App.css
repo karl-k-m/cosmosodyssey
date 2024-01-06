@@ -1,0 +1,30 @@
+.content-container {
+    padding-top: 5vh;
+    max-width: 70%;
+    margin: auto;
+    color: white;
+}
+
+.text_divider {
+    --text-divider-gap: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.text_divider::before, .text_divider::after {
+    content: '';
+    height: 1px;
+    background-color: silver;
+    flex-grow: 1;
+}
+
+.text_divider::before {
+    margin-right: var(--text-divider-gap);
+}
+
+.text_divider::after {
+    margin-left: var(--text-divider-gap);
+}
