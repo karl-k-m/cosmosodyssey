@@ -1,0 +1,41 @@
+.route_info_body {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    min-width: 25vw;
+}
+
+.route_info_body_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.1rem 0;
+}
+
+.reserve_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+h2 {
+    margin: inherit;
+    padding: inherit;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+p {
+    margin: inherit;
+    padding: inherit;
+}

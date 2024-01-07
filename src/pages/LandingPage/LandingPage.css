@@ -51,7 +51,7 @@
     align-items: center;
     max-width: 35%;
     height: fit-content;
-    border-radius: 5px;
+    border-radius: 10px;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -63,7 +63,7 @@
 .info_bottom_image_bottom_image {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .info_bottom_image_bottom_title {

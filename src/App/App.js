@@ -6,6 +6,7 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 import ReserveTripPage from "../pages/ReserveTripPage/ReserveTripPage";
 import TravelCompaniesPage from "../pages/TravelCompaniesPage/TravelCompaniesPage";
+import CreateReservationPage from "../pages/CreateReservationPage/CreateReservationPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/reserve" element={<ReserveTripPage />} />
             <Route path="/companies" element={<TravelCompaniesPage />} />
+            <Route path="/create-reservation" element={<CreateReservationPage />} />
             <Route path="*" element={<LandingPage />} />
           </Routes>
           </div>
