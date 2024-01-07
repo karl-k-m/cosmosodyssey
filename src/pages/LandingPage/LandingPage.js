@@ -3,6 +3,7 @@ import "./LandingPage.css";
 import {NavLink} from "react-router-dom";
 import SpaceshipInteriorImage from "../../assets/images/spaceship_interior.webp"
 import SpaceshipImage from "../../assets/images/spaceship.webp";
+import SolarSystemImage from "../../assets/images/solar.webp";
 
 function LandingPage() {
     return (
@@ -37,7 +38,23 @@ function LandingPage() {
                             ranges from economy options all the way to luxury! For a trip of any nature and to anywhere, you can count on one
                             of these to fulfill any of your needs!</p>
                     </div>
-                    <img className="info_bottom_image_bottom_image" src={SpaceshipImage} alt="spaceship interior" />
+                    <img className="info_bottom_image_bottom_image" src={SpaceshipImage} alt="spaceship exterior" />
+                </div>
+                <div className="info_bottom_image_right">
+                    <div className="info_bottom_image_right_text">
+                        <h2 className="info_bottom_image_right_title">Destinations</h2>
+                        <ul className="destination_list">
+                            <li className="destination_list_item">Mercury</li>
+                            <li className="destination_list_item">Venus</li>
+                            <li className="destination_list_item">Earth</li>
+                            <li className="destination_list_item">Mars</li>
+                            <li className="destination_list_item">Jupiter</li>
+                            <li className="destination_list_item">Saturn</li>
+                            <li className="destination_list_item">Uranus</li>
+                            <li className="destination_list_item">Neptune</li>
+                        </ul>
+                    </div>
+                    <img className="info_bottom_image_right_image" src={SolarSystemImage} alt="solar system image" />
                 </div>
             </div>
         </div>

@@ -42,16 +42,10 @@ function RouteInfoComponent({routeInfo}) {
         }
     }
 
-    // Find all flight ids in route
-    var flight_ids = [];
-    for (var i = 0; i < routeInfo.length; i++) {
-        flight_ids.push(routeInfo[i]['flightID']);
-    }
-
     const navigate = useNavigate();
     const handleReserveClick = () => {
         const reservationData = {
-            flight_ids, // Your data
+            routeInfo,
             routeCost,
             usedCompanies,
             visitedPlanets,
