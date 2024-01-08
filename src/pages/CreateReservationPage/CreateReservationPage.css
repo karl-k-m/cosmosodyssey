@@ -28,3 +28,11 @@
 .flights_info_container {
     margin-top: 5vh;
 }
+
+.CreateReservationPage_details_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vh;
+}

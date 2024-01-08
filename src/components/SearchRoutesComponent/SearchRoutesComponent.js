@@ -18,7 +18,8 @@ function SearchRoutesComponent() {
     };
 
     const searchRoutes = () => {
-        const url = `http://localhost:5170/api/FlightFinder?startLoc=${fromPlanet}&endLoc=${toPlanet}`;
+        const apiURL = process.env.REACT_APP_BACKEND_API_URL;
+        const url = apiURL + `/api/FlightFinder?startLoc=${fromPlanet}&endLoc=${toPlanet}`;
 
         fetch(url)
             .then(response => response.json())
