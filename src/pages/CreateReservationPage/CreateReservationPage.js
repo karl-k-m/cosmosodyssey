@@ -41,6 +41,8 @@ function CreateReservationPage() {
     function createReservation() {
         const apiURL = process.env.REACT_APP_BACKEND_API_URL;
 
+        const reservationID = generateReservationID();
+
         fetch(apiURL + '/api/TravelReservation', {
             method: 'POST',
             headers: {
@@ -48,7 +50,7 @@ function CreateReservationPage() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                'reservationID': generateReservationID(),
+                'reservationID': reservationID,
                 'passengerFirstName': passengerFirstName,
                 'passengerLastName': passengerLastName,
                 'distance': reservationData.routeDistance,
@@ -68,7 +70,28 @@ function CreateReservationPage() {
             console.error('Error creating reservation:', error);
         });
 
-        //TODO: Add ReservationFlight entries
+        for (var i = 0; i < reservationData.routeInfo.length; i++) {
+            fetch(apiURL + '/api/ReservationFlight', {
+                method: 'POST',
+                headers: {
+                    'accept': '*/*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'ReservationID': reservationID,
+                    'FlightID': reservationData.routeInfo[i]['flightID']
+                })
+            }).then(response => {
+                if (response.status === 200) {
+                    console.log("ReservationFlight created successfully!");
+                } else {
+                    alert("Error creating ReservationFlight.");
+                }
+            }
+            ).catch(error => {
+                console.error('Error creating ReservationFlight:', error);
+            });
+        }
     }
 
     // Find all flight ids in route
