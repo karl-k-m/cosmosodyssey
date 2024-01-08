@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import "./SearchRoutesComponent.css";
 import RouteInfoComponent from '../RouteInfoComponent/RouteInfoComponent';
 
@@ -9,6 +9,12 @@ function SearchRoutesComponent() {
 
     const validateForm = (event) => {
         event.preventDefault();
+
+        if (fromPlanet === "" || toPlanet === "") {
+            alert("Please select a planet for both Origin and Destination.");
+            return;
+        }
+
         if (fromPlanet === toPlanet) {
             alert("From and To locations cannot be the same planet.");
             return;
@@ -31,6 +37,67 @@ function SearchRoutesComponent() {
                 console.error('Error fetching data:', error);
             });
     };
+
+    function sortRoutesByPrice(routes) {
+        routes.forEach(route => {
+            var routeCost = 0;
+
+            for (var i = 0; i < route.length; i++) {
+                routeCost += route[i]['price'];
+            }
+
+            route.totalCost = Math.round(routeCost * 100) / 100;
+        });
+
+        routes.sort((a, b) => a.totalCost - b.totalCost);
+
+        return routes;
+    }
+
+    function sortRoutesByDuration(routes) {
+        routes.forEach(route => {
+            const originDepartureTime = new Date(route[0].departureTime);
+            const destinationArrivalTime = new Date(route[route.length - 1].arrivalTime);
+
+            var routeDurationMilliseconds = destinationArrivalTime - originDepartureTime;
+            var routeDurationDays = Math.floor(routeDurationMilliseconds / (1000 * 60 * 60 * 24));
+
+            route.totalDuration = routeDurationDays;
+        });
+
+        routes.sort((a, b) => a.totalDuration - b.totalDuration);
+
+        return routes;
+    }
+
+    function sortRoutesByDistance(routes) {
+        routes.forEach(route => {
+            var routeDistance = 0;
+            for (var i = 0; i < route.length; i++) {
+                routeDistance += route[i].distance;
+            }
+            route.totalDistance = routeDistance;
+        });
+
+        routes.sort((a, b) => a.totalDistance - b.totalDistance);
+
+        return routes;
+    }
+
+    const handleSortByPrice = () => {
+        const sortedRoutes = sortRoutesByPrice([...routes]);
+        setRouteInfo(sortedRoutes);
+    };
+
+    const handleSortByDuration = () => {
+        const sortedRoutes = sortRoutesByDuration([...routes]);
+        setRouteInfo(sortedRoutes);
+    };
+
+    const handleSortByDistance = () => {
+        const sortedRoutes = sortRoutesByDistance([...routes]);
+        setRouteInfo(sortedRoutes);
+    }
 
     return (
         <div className="search_routes_wrapper">
@@ -65,6 +132,11 @@ function SearchRoutesComponent() {
 
                     <input type="submit" value="Search" />
                 </form>
+                <div className={routes.length > 0 ? "sort_routes_wrapper_with_results" : "sort_routes_wrapper"}>
+                    <button className={"sort_button"} onClick={() => handleSortByPrice()}>Sort by Price</button>
+                    <button className={"sort_button"} onClick={() => handleSortByDuration()}>Sort by Duration</button>
+                    <button className={"sort_button"} onClick={() => handleSortByDistance()}>Sort by Distance</button>
+                </div>
             </div>
 
             <div className="route_info_wrapper">

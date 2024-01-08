@@ -36,6 +36,28 @@
     margin: 0;
 }
 
+.sort_routes_wrapper_with_results {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.sort_routes_wrapper {
+    display: none;
+}
+
+.sort_button {
+    margin: 0 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    color: black;
+    background-color: #fff;
+
+}
+
 form {
     display: flex;
     flex-direction: row;

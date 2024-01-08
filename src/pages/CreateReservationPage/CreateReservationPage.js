@@ -1,13 +1,12 @@
 import "./CreateReservationPage.css"
 import { useLocation } from 'react-router-dom';
-import RouteInfoComponent from "../../components/RouteInfoComponent/RouteInfoComponent";
 import React, {useState} from "react";
 import ReservationFlightInfoComponent
     from "../../components/ReservationFlightInfoComponent/ReservationFlightInfoComponent";
 
 function CreateReservationPage() {
-    const [passengerFirstName, setPassengerFirstName] = useState('');
-    const [passengerLastName, setPassengerLastName] = useState('');
+    var [passengerFirstName, setPassengerFirstName] = useState('');
+    var [passengerLastName, setPassengerLastName] = useState('');
     const handleFirstNameChange = (event) => {
         setPassengerFirstName(event.target.value);
     };
@@ -16,6 +15,7 @@ function CreateReservationPage() {
         setPassengerLastName(event.target.value);
     };
 
+    // Generate a random reservation ID in the format CCC-NNNN (C = letter, N = digit)
     function generateReservationID() {
         const getRandomLetter = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
         const getRandomDigit = () => Math.floor(Math.random() * 10);
@@ -32,6 +32,22 @@ function CreateReservationPage() {
             return;
         }
 
+        if (passengerFirstName.length > 50 || passengerLastName.length > 50) {
+            alert("Name must be less than 50 characters.");
+            return;
+        }
+
+        if (passengerFirstName.length < 2 || passengerLastName.length < 2) {
+            alert("Name must be at least 2 characters.");
+            return;
+        }
+
+        // Allow only letters, spaces, and hyphens
+        if (!/^[a-zA-Z -]+$/.test(passengerFirstName) || !/^[a-zA-Z -]+$/.test(passengerLastName)) {
+            alert("Name must contain only letters, spaces, and hyphens.");
+            return;
+        }
+
         createReservation();
     }
 
@@ -42,6 +58,13 @@ function CreateReservationPage() {
         const apiURL = process.env.REACT_APP_BACKEND_API_URL;
 
         const reservationID = generateReservationID();
+
+        passengerFirstName = passengerFirstName.trim();
+        passengerLastName = passengerLastName.trim();
+
+        passengerFirstName = passengerFirstName.toUpperCase();
+        passengerLastName = passengerLastName.toUpperCase();
+
 
         fetch(apiURL + '/api/TravelReservation', {
             method: 'POST',
@@ -126,18 +149,18 @@ function CreateReservationPage() {
                     </div>
                     <div className={"CreateReservationPage_details_item"}>
                         <h2>Planets</h2>
-                        <p>{reservationData.visitedPlanets.join(", ")}</p>
+                        <p>{reservationData.visitedPlanets.join(" → ")}</p>
                     </div>
                     <div className={"CreateReservationPage_details_item"}>
                         <h2>Distance</h2>
                         <p>{reservationData.routeDistance} km</p>
                     </div>
                     <div className={"CreateReservationPage_details_item"}>
-                        <h2>Time</h2>
+                        <h2>Duration (including layovers)</h2>
                         <p>{reservationData.routeDurationDays} days</p>
                     </div>
                 </div>
-                <form className={"CreateReservationPage_form"} onClick={validateForm}>
+                <form className={"CreateReservationPage_form"} onSubmit={validateForm}>
                     <h1>Passenger Details</h1>
                     <div className={"CreateReservationPage_form_item"}>
                         <label htmlFor="firstName"></label><br />
