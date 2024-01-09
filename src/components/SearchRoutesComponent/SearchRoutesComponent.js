@@ -6,6 +6,7 @@ function SearchRoutesComponent() {
     const [fromPlanet, setFromPlanet] = useState('');
     const [toPlanet, setToPlanet] = useState('');
     const [routes, setRouteInfo] = useState([]);
+    const [displayLimit, setDisplayLimit] = useState(5);
 
     const validateForm = (event) => {
         event.preventDefault();
@@ -31,6 +32,7 @@ function SearchRoutesComponent() {
             .then(response => response.json())
             .then(data => {
                 setRouteInfo(data);
+                setDisplayLimit(5);
                 console.log(data);
             })
             .catch(error => {
@@ -99,10 +101,14 @@ function SearchRoutesComponent() {
         setRouteInfo(sortedRoutes);
     }
 
+    const showMoreRoutes = () => {
+        setDisplayLimit(displayLimit + 10);
+    }
+
     return (
         <div className="search_routes_wrapper">
             <div className={routes.length > 0 ? "searchbox_wrapper_with_results" : "searchbox_wrapper"}>
-                <h1 className="search_routes_title">Search for Routes</h1>
+                <h1 className="search_routes_title">Search</h1>
                 <form onSubmit={validateForm}>
                     <label htmlFor="from">FROM:</label><br />
                     <select id="from" name="from" value={fromPlanet} onChange={(e) => setFromPlanet(e.target.value)}>
@@ -133,17 +139,23 @@ function SearchRoutesComponent() {
                     <input type="submit" value="Search" />
                 </form>
                 <div className={routes.length > 0 ? "sort_routes_wrapper_with_results" : "sort_routes_wrapper"}>
-                    <button className={"sort_button"} onClick={() => handleSortByPrice()}>Sort by Price</button>
-                    <button className={"sort_button"} onClick={() => handleSortByDuration()}>Sort by Duration</button>
-                    <button className={"sort_button"} onClick={() => handleSortByDistance()}>Sort by Distance</button>
+                    <button className={"sort_button"} onClick={() => handleSortByPrice()}>Price ↓</button>
+                    <button className={"sort_button"} onClick={() => handleSortByDuration()}>Duration ↓</button>
+                    <button className={"sort_button"} onClick={() => handleSortByDistance()}>Distance ↓</button>
                 </div>
             </div>
 
             <div className="route_info_wrapper">
-                {routes.map((route, index) => (
+                {routes.slice(0, displayLimit).map((route, index) => (
                     <RouteInfoComponent key={index} routeInfo={route} />
                 )
                 )}
+
+                {routes.length > 0 && routes.length > displayLimit &&
+                    <div className="show_more_button_container">
+                        <button className="show_more_routes_button" onClick={() => showMoreRoutes()}>Show More Routes</button>
+                    </div>
+                }
             </div>
         </div>
     );

@@ -16,3 +16,13 @@
     justify-content: space-between;
     margin-bottom: 1vh;
 }
+
+@media screen and (max-width: 768px) {
+    .flight_info_wrapper {
+        margin-bottom: 1vh;
+    }
+
+    .flight_info_item {
+        flex-direction: column;
+    }
+}
