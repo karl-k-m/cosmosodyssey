@@ -36,5 +36,44 @@ li {
 .nav_icon {
     width: 7rem;
     height: 7rem;
-    margin-right: 15px;
+    margin-right: 1rem;
+}
+
+.nav_link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar_icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar_text {
+        display: none;
+    }
+
+    .nav_icon {
+        display: none;
+    }
+
+    .nav_items_wrapper {
+        justify-content: space-around;
+        padding-left: 0;
+    }
+
+    .navbar_icon {
+        margin: 0;
+    }
+
+    li {
+        padding: 0;
+    }
+
+    .nav_items_wrapper > li:nth-child(3) {
+        display: none;
+    }
 }

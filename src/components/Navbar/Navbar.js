@@ -1,19 +1,24 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logoIcon from "../../assets/images/logo.png";
-import React, { useState, useEffect } from 'react';
+import HomeIcon from '../../assets/images/home_icon.png'
+import SearchIcon from '../../assets/images/searchicon.png'
+import AboutIcon from '../../assets/images/about_icon.png'
+import CompaniesIcon from '../../assets/images/spaceshipicon.png'
 
 function Navbar() {
     return (
         <div className="navbar_wrapper">
             <ul className="nav_items_wrapper">
                 <li className="navbar_item">
-                    <NavLink to="/" exact>
+                    <NavLink className="nav_link" to="/" exact>
+                        <img className="navbar_icon" src={HomeIcon}/>
                         <p className="navbar_text">home</p>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/about">
+                    <NavLink className="nav_link" to="/about">
+                        <img className="navbar_icon" src={AboutIcon}/>
                         <p className="navbar_text">about us</p>
                     </NavLink>
                 </li>
@@ -21,12 +26,14 @@ function Navbar() {
                     <img className="nav_icon" src={logoIcon} alt="Home" />
                 </li>
                 <li>
-                    <NavLink to="/reserve">
+                    <NavLink className="nav_link" to="/reserve">
+                        <img className="navbar_icon" src={SearchIcon}/>
                         <p className="navbar_text">reserve a trip</p>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/companies">
+                    <NavLink className="nav_link" to="/companies">
+                        <img className="navbar_icon" src={CompaniesIcon}/>
                         <p className="navbar_text">companies</p>
                     </NavLink>
                 </li>
