@@ -6,3 +6,4 @@ For the back-end documentation, visit: https://github.com/karl-k-m/CosmosOdyssey
 
 ## Known issues
 I need to implement either a loading bar/gif or disable buttons while requests are being processed.
+Distance in the reserve search page is wrong.
