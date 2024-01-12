@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.34397386.css",
-    "main.js": "/static/js/main.b92d6d82.js",
-    "static/js/787.e78346b6.chunk.js": "/static/js/787.e78346b6.chunk.js",
-    "static/media/spaceship.webp": "/static/media/spaceship.6e4f88d37222500dcd0b.webp",
-    "static/media/spaceship_interior.webp": "/static/media/spaceship_interior.f157218fd5c54a58a26c.webp",
-    "static/media/background2.webp": "/static/media/background2.31f9a7d37d6e1f26e9f7.webp",
-    "static/media/solar.webp": "/static/media/solar.d97fe20e7131073c7b5d.webp",
-    "static/media/logo.png": "/static/media/logo.e51284d3a3f8e462bafe.png",
-    "static/media/spaceshipicon.png": "/static/media/spaceshipicon.c11b2182982854eb65d3.png",
-    "static/media/about_icon.png": "/static/media/about_icon.372d6038c8488b555f7b.png",
-    "index.html": "/index.html",
-    "main.34397386.css.map": "/static/css/main.34397386.css.map",
-    "main.b92d6d82.js.map": "/static/js/main.b92d6d82.js.map",
-    "787.e78346b6.chunk.js.map": "/static/js/787.e78346b6.chunk.js.map"
+    "main.css": "/cosmosodyssey/static/css/main.d9d6c8a0.css",
+    "main.js": "/cosmosodyssey/static/js/main.186a65de.js",
+    "static/js/787.e78346b6.chunk.js": "/cosmosodyssey/static/js/787.e78346b6.chunk.js",
+    "static/media/spaceship.webp": "/cosmosodyssey/static/media/spaceship.6e4f88d37222500dcd0b.webp",
+    "static/media/spaceship_interior.webp": "/cosmosodyssey/static/media/spaceship_interior.f157218fd5c54a58a26c.webp",
+    "static/media/background2.webp": "/cosmosodyssey/static/media/background2.31f9a7d37d6e1f26e9f7.webp",
+    "static/media/solar.webp": "/cosmosodyssey/static/media/solar.d97fe20e7131073c7b5d.webp",
+    "static/media/logo.png": "/cosmosodyssey/static/media/logo.e51284d3a3f8e462bafe.png",
+    "static/media/spaceshipicon.png": "/cosmosodyssey/static/media/spaceshipicon.c11b2182982854eb65d3.png",
+    "static/media/about_icon.png": "/cosmosodyssey/static/media/about_icon.372d6038c8488b555f7b.png",
+    "index.html": "/cosmosodyssey/index.html",
+    "main.d9d6c8a0.css.map": "/cosmosodyssey/static/css/main.d9d6c8a0.css.map",
+    "main.186a65de.js.map": "/cosmosodyssey/static/js/main.186a65de.js.map",
+    "787.e78346b6.chunk.js.map": "/cosmosodyssey/static/js/787.e78346b6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34397386.css",
-    "static/js/main.b92d6d82.js"
+    "static/css/main.d9d6c8a0.css",
+    "static/js/main.186a65de.js"
   ]
 }
