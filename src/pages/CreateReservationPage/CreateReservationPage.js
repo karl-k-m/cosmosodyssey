@@ -27,6 +27,11 @@ function CreateReservationPage() {
 
     function validateForm(event) {
         event.preventDefault();
+        if (reservationData.routeInfo[0]['validUntil'] < new Date()) {
+            alert("This route is no longer valid.");
+            return;
+        }
+
         if (passengerFirstName === '' || passengerLastName === '') {
             alert("Please enter your name.");
             return;
